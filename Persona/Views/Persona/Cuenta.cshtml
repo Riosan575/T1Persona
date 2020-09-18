@@ -1,0 +1,47 @@
+﻿@{
+    // List<Account> accounts = ((List<Account>)ViewBag.Accounts); // forma A
+    List<Person> accounts = ((List<Person>)Model); // forma B
+}
+
+<h1>Cuentas</h1>
+
+<a href="/persona/registro">Crear Cuenta</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Tipo</th>
+            <th>Nombre</th>
+            <th>Divisa</th>
+            <th>Saldo</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+        @for (int i = 0; i < accounts.Count; i++)
+        {
+            Person item = accounts[i];
+            <tr>
+                <td></td>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.Fecha</td>
+                <td>@item.DNI</td>
+                <td>@item.Genero</td>
+                <td>@item.Ciudad</td>
+                <td>@item.Direccion</td>
+                <td>@item.Correo</td>
+                <td>@item.Username</td>
+                <td>@item.Contraseña</td>
+                <td>
+                    <a href="/Account/edit?id=@item.Id">Editar</a> |
+                    <a href="/Account/delete?id=@item.Id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

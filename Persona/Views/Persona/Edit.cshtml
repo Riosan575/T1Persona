@@ -1,0 +1,33 @@
+﻿
+@{
+    
+    var persons = (Person)Model; // FORMA a
+}
+<h1>Editar Cuenta</h1>
+
+
+<form action="/account/edit" method="post">
+
+    <input type="hidden" name="Id" value="@persons.Id" />
+
+    Tipo
+    <select name="Type">
+        @foreach (var item in ViewBag.Types)
+        {
+            if (persons.Genero == item)
+            {
+                <option value="@item" selected>@item</option>
+            }
+            else
+            {
+                <option value="@item">@item</option>
+            }
+        }
+    </select>
+    Nombre <input name="Name" value="@persons.Nombre" />
+    @Html.ValidationMessage("Nombre")
+    Divisa
+    
+    <button>Guardar</button>
+
+</form>
